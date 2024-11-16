@@ -6,9 +6,9 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>Defer</PackageId>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
-		<Version>$(VersionPrefix)1.0.0.0</Version>
+		<AssemblyVersion>1.1.0.0</AssemblyVersion>
+		<FileVersion>1.1.0.0</FileVersion>
+		<Version>$(VersionPrefix)1.1.0.0</Version>
 		<Authors>ema</Authors>
 		<Description>Use using keyword to emulate Golang's defer keyword in C#</Description>
 		<PackageProjectUrl>https://github.com/emako/Defer</PackageProjectUrl>
