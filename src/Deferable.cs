@@ -2,11 +2,11 @@
 
 public partial class Deferable(Action action) : IDeferable
 {
-    protected readonly Action? action = action;
+    protected readonly Action? _action = action;
 
     public void Dispose()
     {
-        action?.Invoke();
+        _action?.Invoke();
     }
 }
 

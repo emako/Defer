@@ -8,7 +8,6 @@ internal class Program
     {
         {
             Console.WriteLine("Hello, World!");
-
             using (Deferable.Defer(() => Console.WriteLine("Goodbye, World!")))
             {
                 Console.WriteLine("Do something");
@@ -53,5 +52,33 @@ internal class Program
             }
             Console.WriteLine("after defer value: " + value);
         }
+
+        Console.Write(Environment.NewLine);
+
+        Task.Run(async () =>
+        {
+            {
+                Console.WriteLine("Hello, World!");
+                await using (AsyncDeferable.DeferAsync(async () => Console.WriteLine(await Task.FromResult("Goodbye, World!"))))
+                {
+                    Console.WriteLine("Do something");
+                }
+            }
+
+            Console.Write(Environment.NewLine);
+
+            {
+                int status = -1;
+
+                Console.WriteLine("init status: " + status);
+                await using (AsyncDeferable<int>.DeferAsync(async value => status = await Task.FromResult(value), initValue: 1, deferValue: 0))
+                {
+                    Console.WriteLine("doing something status: " + status);
+                }
+                Console.WriteLine("after defer status: " + status);
+            }
+        });
+
+        Console.ReadLine();
     }
 }
