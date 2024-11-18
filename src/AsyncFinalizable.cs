@@ -9,7 +9,7 @@ namespace System.Defer;
 /// This class extends <see cref="AsyncDeferable"/> and provides enhanced logic for cleanup,
 /// including exception management and finalization.
 /// </summary>
-public partial class AsyncFinalizable(Func<ValueTask> func) : AsyncDeferable(func)
+public partial class AsyncFinalizable(Func<ValueTask> func) : AsyncDeferable(func), IAsyncFinalizable
 {
     /// <summary>
     /// Gets a value indicating whether the resource has already been disposed.
