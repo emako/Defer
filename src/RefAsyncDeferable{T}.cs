@@ -67,7 +67,7 @@ public readonly ref struct RefAsyncDeferable<T> : IAsyncDeferable
         return ValueTask.CompletedTask;
 #else
         // Return the default value for earlier versions of .NET.
-        return default;
+        return new ValueTask(Task.CompletedTask);
 #endif
     }
 
