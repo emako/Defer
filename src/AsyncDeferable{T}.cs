@@ -31,7 +31,7 @@ public partial class AsyncDeferable<T> : IAsyncDeferable
     {
         _func = func;
         _deferValue = deferValue;
-        _func?.Invoke(initValue).GetAwaiter().GetResult();
+        _func?.Invoke(initValue).ConfigureAwait(false).GetAwaiter().GetResult();
     }
 
     /// <summary>
