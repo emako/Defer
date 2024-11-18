@@ -21,6 +21,12 @@ public partial class AsyncDeferable<T> : IAsyncDeferable
         _deferValue = deferValue;
     }
 
+    public AsyncDeferable(Func<T, ValueTask> func)
+    {
+        _func = func;
+        _deferValue = default!;
+    }
+
     public async ValueTask DisposeAsync()
     {
         if (_func != null)
@@ -37,5 +43,8 @@ public partial class AsyncDeferable<T>
 
     public static IAsyncDeferable DeferAsync(Func<T, ValueTask> func, T deferValue)
         => new AsyncDeferable<T>(func, deferValue);
+
+    public static IAsyncDeferable DeferAsync(Func<T, ValueTask> func)
+        => new AsyncDeferable<T>(func);
 }
 #endif
