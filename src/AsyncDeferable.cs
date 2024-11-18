@@ -18,7 +18,7 @@ public partial class AsyncDeferable(Func<ValueTask> func) : IAsyncDeferable
     /// <summary>
     /// Asynchronously disposes of the deferred operation by invoking the provided function, if it exists.
     /// </summary>
-    public async ValueTask DisposeAsync()
+    public virtual async ValueTask DisposeAsync()
     {
         if (_func != null)
         {

@@ -59,7 +59,7 @@ public partial class Deferable<T> : IDeferable
     /// Executes the deferred action when disposed.
     /// This method is part of the IDisposable pattern and invokes the action with the deferred value.
     /// </summary>
-    public void Dispose()
+    public virtual void Dispose()
     {
         _action?.Invoke(_deferValue);
     }

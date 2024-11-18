@@ -60,7 +60,7 @@ public partial class AsyncDeferable<T> : IAsyncDeferable
     /// <summary>
     /// Asynchronously disposes of the deferred operation by invoking the provided function with the deferValue.
     /// </summary>
-    public async ValueTask DisposeAsync()
+    public virtual async ValueTask DisposeAsync()
     {
         // Check if the function is not null before invoking it with the deferValue.
         if (_func != null)

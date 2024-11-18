@@ -15,7 +15,7 @@ public partial class Deferable(Action action) : IDeferable
     /// Executes the deferred action when disposed.
     /// This method is part of the IDisposable pattern.
     /// </summary>
-    public void Dispose()
+    public virtual void Dispose()
     {
         _action?.Invoke();
     }
