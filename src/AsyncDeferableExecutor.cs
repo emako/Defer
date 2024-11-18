@@ -1,4 +1,4 @@
-﻿#if NETFRAMEWORK4_5_OR_GREATER
+﻿#if NETFRAMEWORK4_5_OR_GREATER || NETSTANDARD1_0_OR_GREATER || NETCOREAPP1_0_OR_GREATER
 
 using System.Threading.Tasks;
 
@@ -33,7 +33,8 @@ public static class AsyncDeferableExecutor
             }
             else
             {
-                throw; // Re-throw the exception if no catchAction is provided.
+                // Re-throw the exception if no catchAction is provided.
+                throw;
             }
         }
         finally
@@ -63,7 +64,8 @@ public static class AsyncDeferableExecutor
                 return await catchFunc(ex);
             }
 
-            throw; // Re-throw the exception if no catchFunc is provided.
+            // Re-throw the exception if no catchFunc is provided.
+            throw;
         }
         finally
         {

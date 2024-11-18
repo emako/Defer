@@ -49,7 +49,8 @@ public static class DeferableExecutor
                 return catchFunc.Invoke(ex);
             }
 
-            throw; // Re-throw the exception if no catchFunc is provided.
+            // Re-throw the exception if no catchFunc is provided.
+            throw;
         }
         finally
         {
