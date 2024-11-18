@@ -20,6 +20,10 @@
 		<PackageIcon>logo.png</PackageIcon>
 	</PropertyGroup>
 
+	<PropertyGroup Condition=" '$(TargetFramework)' != 'net11' AND  '$(TargetFramework)' != 'net20' AND  '$(TargetFramework)' != 'net35' AND '$(TargetFramework)' != 'net40' ">
+		<DefineConstants>NETFRAMEWORK4_5_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="" />
 		<None Include="..\logo.png" Pack="true" PackagePath="" />

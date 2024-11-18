@@ -1,7 +1,7 @@
 ﻿namespace System.Defer;
 
 /// <summary>
-/// Provides utility methods to execute actions and functions
+/// Provides synchronous utility methods to execute actions and functions
 /// with encapsulated try-catch-finally or try-finally logic.
 /// </summary>
 public static class DeferableExecutor
