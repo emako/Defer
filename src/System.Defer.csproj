@@ -14,14 +14,18 @@
 		<PackageProjectUrl>https://github.com/emako/Defer</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/emako/Defer</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>defer Deferable AsyncDisposable Golang</PackageTags>
+		<PackageTags>defer Deferable AsyncDeferable Golang</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>logo.png</PackageIcon>
 	</PropertyGroup>
 
-	<PropertyGroup Condition=" '$(TargetFramework)' != 'net11' AND  '$(TargetFramework)' != 'net20' AND  '$(TargetFramework)' != 'net35' AND '$(TargetFramework)' != 'net40' ">
+	<PropertyGroup Condition=" '$(TargetFramework)' != 'net11' AND '$(TargetFramework)' != 'net20' AND '$(TargetFramework)' != 'net35' AND '$(TargetFramework)' != 'net40' ">
 		<DefineConstants>NETFRAMEWORK4_5_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<NoWarn>$(NoWarn);NU1902;NU1903;NETSDK1215;</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
