@@ -32,4 +32,17 @@ public partial class Deferable
     /// <returns>An instance of <see cref="IDeferable"/>.</returns>
     public static IDeferable Defer(Action action)
         => new Deferable(action);
+
+    /// <summary>
+    /// Executes an optional action immediately and then creates and returns an <see cref="IDeferable"/> whose
+    /// specified <paramref name="action"/> will be executed when the returned instance is disposed.
+    /// </summary>
+    /// <param name="instantAction">An optional action to execute immediately. If <c>null</c>, no immediate action is performed.</param>
+    /// <param name="action">The action to defer; it will be invoked when the returned <see cref="IDeferable"/> is disposed.</param>
+    /// <returns>An <see cref="IDeferable"/> that will execute <paramref name="action"/> when disposed.</returns>
+    public static IDeferable Defer(Action instantAction, Action action)
+    {
+        instantAction?.Invoke();
+        return Defer(action);
+    }
 }
