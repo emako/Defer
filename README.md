@@ -16,9 +16,9 @@ dotnet add package Defer
 
 [![Actions](https://github.com/emako/Defer/actions/workflows/library.nuget.yml/badge.svg)](https://github.com/emako/Defer/actions/workflows/library.nuget.yml)
 
-## Using Deferable
+## Usage
 
-Usage of `Deferable`
+1. Usage of `Deferable`
 
 ```c#
 // Deferable.Defer
@@ -34,7 +34,7 @@ using (Deferable.Defer(() => Console.WriteLine("Goodbye, World!")))
 // Goodbye, World!
 ```
 
-Usage of `Deferable<T>`
+2. Usage of `Deferable<T>`
 
 ```c#
 // Deferable<T>
@@ -53,7 +53,7 @@ Console.WriteLine("after defer status: " + status);
 // after defer status: 0
 ```
 
-Usage of `BooleanDeferable`
+3. Usage of `BooleanDeferable`
 
 ```c#
 // BooleanDeferable
@@ -72,7 +72,7 @@ Console.WriteLine("after defer flag: " + flag);
 // after defer flag: False
 ```
 
-Usage of `RefDeferable<T>`
+4. Usage of `RefDeferable<T>`
 
 ```c#
 // RefDeferable<T>
@@ -90,6 +90,34 @@ Console.WriteLine("after defer value: " + value);
 // init value: -1
 // doing something value: 0
 // after defer value: 1
+```
+
+## Comparison
+
+> Comparison with Go's `defer`
+
+In Go, `defer` is a keyword used to ensure that a function call is performed later in a program's execution, usually for purposes of cleanup.
+
+```go
+fmt.Println("Hello, World!")
+defer fmt.Println("Goodbye, World!")
+fmt.Println("Do something")
+```
+
+In C#, using this library, you can achieve similar behavior with `Deferable.Defer` and the `using` statement.
+
+```csharp
+Console.WriteLine("Hello, World!");
+using IDeferable defer = Deferable.Defer(() => Console.WriteLine("Goodbye, World!"));
+Console.WriteLine("Do something");
+```
+
+Both snippets output:
+
+```text
+Hello, World!
+Do something
+Goodbye, World!
 ```
 
 ## References
