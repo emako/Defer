@@ -120,7 +120,36 @@ Do something
 Goodbye, World!
 ```
 
+## Before / After
+
+Previously you might show and hide a loading indicator with a try/finally block:
+
+```csharp
+// Before: try/finally
+bool _isLoading = false;
+try
+{
+    _isLoading = true;
+    // Do work that shows loading indicator
+}
+finally
+{
+    _isLoading = false;
+}
+```
+
+With this library you can achieve the same with two lines using `Deferable`: the show and hide logic stay next to each other, the code is simpler and more readable.
+
+```csharp
+// After: Deferable
+bool _isLoading = false;
+_isLoading = true;
+using IDeferable _ = Deferable.Defer(() => _isLoading = false);
+// Do work while loading; when the scope exits, loading is hidden automatically
+```
+
+This keeps the show/hide logic colocated, reduces boilerplate, and improves readability.
+
 ## References
 
 https://blog.coldwind.top/posts/mimic-go-defer-in-csharp/
-
