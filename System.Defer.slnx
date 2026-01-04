@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/System.Defer.csproj" />
+  <Project Path="test/DeferTester.csproj" />
+</Solution>
