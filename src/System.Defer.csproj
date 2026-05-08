@@ -17,7 +17,7 @@
         <PackageTags>defer Deferable AsyncDeferable Golang</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageIcon>logo.png</PackageIcon>
+        <PackageIcon>Logo.png</PackageIcon>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <DebugType>portable</DebugType>
@@ -39,7 +39,7 @@
 
     <ItemGroup>
         <None Include="..\README.md" Pack="true" PackagePath="" />
-        <None Include="..\logo.png" Pack="true" PackagePath="" />
+        <None Include="..\Logo.png" Pack="true" PackagePath="" />
     </ItemGroup>
 
 </Project>
